@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1885715813971042
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +190,8 @@ MonoBehaviour:
   - {fileID: 0}
   intPoint: {fileID: 0}
   player: {fileID: 0}
+  GOAL: {fileID: 0}
+  finish: {fileID: 0}
   speed: 3
   run: 5
   atk: 1.5

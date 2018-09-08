@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour {
 
-	//public GameMasterScript gM;
-
+    //public GameMasterScript gM;
+    public bool rst;
 	float speed= 6.0f;
 	public bool isGrounded;
 	public float jForce = 20.0f;
@@ -16,8 +16,8 @@ public class PlayerScript : MonoBehaviour {
 	public Rigidbody pRB;
 	public Vector3 jV;
 
-    public float timer;
-    public Text txt;
+  //  public float timer;
+   // public Text txt;
 
 	void Start () {
    
@@ -28,13 +28,13 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        timer += Time.deltaTime;
-        txt.text = "Time:" + Mathf.Floor(timer);
+        /*timer += Time.deltaTime;
+        txt.text = "Time:" + Mathf.Floor(timer);*/
         MoveIt ();
 		if (Input.GetButtonUp ("Fire1") && isGrounded) {
             //	Jump ();
         }
-
+        if (rst == true) { Reset(); }
 	}
 	void OnTriggerEnter(Collider col){
 		if (!isGrounded) {
@@ -56,12 +56,18 @@ public class PlayerScript : MonoBehaviour {
 		float y = Input.GetAxisRaw ("Vertical") * speed * Time.deltaTime;
 
 		transform.Translate (x,0f,y);
-	}
+       transform.rotation = resetPnt.transform.rotation;
+    }
 
 
 	public void restart (){
 		//playerFX.PlayOneShot (dieFX);
 		this.gameObject.transform.position = resetPnt.transform.position;
 	}
+    public void Reset() {
+        transform.position = resetPnt.transform.position;
+        //rst == (false);
+        
+    }
 }
 

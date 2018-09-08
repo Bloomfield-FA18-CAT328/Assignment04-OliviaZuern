@@ -50,6 +50,10 @@ public class EnemyScript : MonoBehaviour {
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if (distance > atkDist) { ChangeToChase(); }
+        else{
+            PlayerScript ps = player.GetComponent<PlayerScript>();
+            ps.Reset();
+        }
     }
 
     void Patrolling() {
